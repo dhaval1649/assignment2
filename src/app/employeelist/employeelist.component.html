@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="form-group row">
+        <button type="submit" class="btn btn-primary" [routerLink]="['add-employee']" >New</button>
+      </div>
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Contact Number</th>
+          <th>Qualification</th>
+          <th>Department</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of emplist;">
+          <th scope="row">{{ emp.id }}</th>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.surname }}</td>
+          <td>{{ emp.contactNumber}}</td>
+          <td>{{ emp.qualification }}</td>
+          <td>{{ emp.department }}</td>
+          <td>
+            <button type="button" class="btn btn-info"  [routerLink]="['/employee/edit/',emp.id]">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete(emp.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>

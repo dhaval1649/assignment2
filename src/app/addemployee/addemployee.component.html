@@ -1,0 +1,83 @@
+<div class="container">
+<h3>{{pageTitle}}</h3>
+<div class="regentry">
+
+
+  <form (ngSubmit)="onSave()" [formGroup]="employeeForm" #formDir="ngForm">
+    <div class="form-group row">
+      <label for="firstname-input" class="col-2 col-form-label">First Name</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="empModel.name" name="firstName" formControlName="name">
+      
+      <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+          Name is required.
+        </span>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="surname-input" class="col-2 col-form-label">Surname</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="empModel.surname" name="surname" formControlName="surname">
+      
+      <span class="text-danger" *ngIf="surname.invalid && formDir.submitted">
+          Surname is required
+        </span>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="address-input" class="col-2 col-form-label">Address</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="empModel.address" name="address" formControlName="address">
+        <span class="text-danger" *ngIf="address.invalid && formDir.submitted">
+            Address is required
+          </span>
+      </div>
+     
+    </div>
+    <div class="form-group row">
+      <label for="contactNumber-input" class="col-2 col-form-label">Contact Number</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="empModel.contactNumber" name="contactNumber" formControlName="contactNumber">
+      
+      <span class="text-danger" *ngIf="contactNumber.invalid && formDir.submitted">
+          Contact Number is required
+        </span>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="qualification-input" class="col-2 col-form-label">Qualification</label>
+      <div class="col-10">
+        <input class="form-control" type="text" [(ngModel)]="empModel.qualification" name="qualification" formControlName="qualification">
+     
+      <span class="text-danger" *ngIf="qualification.invalid && formDir.submitted">
+          Qualification is required
+        </span>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="contactNumber-input" class="col-2 col-form-label">Department</label>
+        <div class="col-md-10">
+            <select class="form-control" data-val="true" formControlName="departmentId" [(ngModel)]="empModel.department">
+              <option value="">Select Department</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Accounts">Accounts</option>
+            </select>
+          <span class="text-danger" *ngIf="departmentId.invalid && formDir.submitted">
+            Department is required
+          </span>
+        </div>
+      </div>
+    <div class="form-group row">
+        <div class="col-2">
+        </div>
+        <div class="col-1">
+      <button type="submit" [disabled]="formDir.invalid" class="btn btn-success">{{submitType}}</button>
+        </div>
+      <div class="col-2">
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </div>
+    </div>
+  </form>
+</div>
+</div>
